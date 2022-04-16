@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Juliiis/backend-challenge-codesherpas#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.3"
   }
 }
