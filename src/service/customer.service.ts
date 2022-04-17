@@ -15,7 +15,7 @@ export class CustomerService {
     return newCustomer
   }
 
-  static delete(id: number): any {
+  static delete(id: number): void {
     customerCollection.find((customer, index) =>{
       if(customer.id == id){
         return customerCollection.splice(index, 1);
