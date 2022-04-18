@@ -14,7 +14,7 @@ export class CustomerService {
     customerCollection.push(newCustomer)
     return newCustomer
   }
-
+  
   static delete(id: number): void {
     customerCollection.find((customer, index) =>{
       if(customer.id == id){
@@ -23,9 +23,13 @@ export class CustomerService {
     })
   }
 
+  static getAll(): Customer[] {
+    return customerCollection
+  }
+
 }
 
-// ¡¡¡ delete at the end !!! 
+// ¡¡¡ delete at the end !!! This is only to test
 const newCustomer = CustomerService.new('Julieta', 'Martin', 'jumartinnob@gmail.com', '03-09-1990')
 console.log(newCustomer.id)
 
