@@ -29,9 +29,3 @@ export class CustomerService {
 
 }
 
-// ¡¡¡ delete at the end !!! This is only to test
-const newCustomer = CustomerService.new('Julieta', 'Martin', 'jumartinnob@gmail.com', '03-09-1990')
-console.log(newCustomer.id)
-
-const newCustomer2 = CustomerService.new('Mami', 'Martin', 'mamiprrr@gmail.com', '05-09-1990')
-console.log(newCustomer2.id)
