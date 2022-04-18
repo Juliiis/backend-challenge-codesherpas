@@ -5,10 +5,15 @@ const express = require('express')
 const app = express()
 app.use(express.json());
 
-/*app.post('/customer', (req: Request, res: Response) => {
-  const theResponse = CustomerService.new(req.body)
-  return res.json(theResponse);
-})*/
+app.post('/customer', (req: Request, res: Response) => {
+  const name = req.body.name
+  const surname = req.body.surname
+  const email = req.body.email
+  const birthday = req.body.birthday
+  
+  const newCustomer = CustomerService.new(name, surname, email, birthday)
+  return res.json(newCustomer);
+})
 
 app.get('/customer/:id', (req: Request, res: Response) => {
   const id = Number(req.params.id)
