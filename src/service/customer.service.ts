@@ -19,16 +19,17 @@ export class CustomerService {
     return customerCollection
   }
 
-  static updateCustomer(id: number, name: string, surname: string, email: string, birthdate: string): void{
-    customerCollection.find((customer) => { // delete the first customer
+  static updateCustomer(id: number, name: string, surname: string, email: string, birthdate: string): Customer | undefined{
+   let customerToUpdate = customerCollection.find((customer) => { // delete the first customer
       if(customer.id == id){
         customer.name = name
         customer.surname = surname
         customer.email = email
         customer.birthdate = birthdate
-      } 
+        return true
+      }
     })
-    
+    return customerToUpdate
   }
 
   static delete(id: number): void {
