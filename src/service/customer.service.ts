@@ -32,12 +32,13 @@ export class CustomerService {
     return customerToUpdate
   }
 
-  static delete(id: number): void {
-    customerCollection.find((customer, index) => {
+  static delete(id: number): Customer | undefined{
+    let customerDeleted = customerCollection.find((customer, index) => {
       if(customer.id == id){
         return customerCollection.splice(index, 1);
       }
     })
+    return customerDeleted
   }
 
 }
