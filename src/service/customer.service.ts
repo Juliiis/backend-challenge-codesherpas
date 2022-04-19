@@ -15,16 +15,28 @@ export class CustomerService {
     return newCustomer
   }
   
+  static getAll(): Customer[] {
+    return customerCollection
+  }
+
+  static updateCustomer(id: number, name: string, surname: string, email: string, birthdate: string): void{
+    customerCollection.find((customer) => { // delete the first customer
+      if(customer.id == id){
+        customer.name = name
+        customer.surname = surname
+        customer.email = email
+        customer.birthdate = birthdate
+      } 
+    })
+    
+  }
+
   static delete(id: number): void {
-    customerCollection.find((customer, index) =>{
+    customerCollection.find((customer, index) => {
       if(customer.id == id){
         return customerCollection.splice(index, 1);
       }
     })
-  }
-
-  static getAll(): Customer[] {
-    return customerCollection
   }
 
 }
