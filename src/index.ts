@@ -5,13 +5,15 @@ const express = require('express')
 const app = express()
 app.use(express.json());
 
+const customerService = new CustomerService();
+
 app.post('/customer', (req: Request, res: Response) => {
   const name = req.body.name
   const surname = req.body.surname
   const email = req.body.email
   const birthdate = req.body.birthdate
   
-  const newCustomer = CustomerService.new(name, surname, email, birthdate)
+  const newCustomer = customerService.new(name, surname, email, birthdate)
   if(newCustomer){
     return res.status(200).send(newCustomer);
   } 
@@ -21,7 +23,7 @@ app.post('/customer', (req: Request, res: Response) => {
 app.get('/customer/:id', (req: Request, res: Response) => {
   const id = Number(req.params.id)
 
-  const customer = CustomerService.get(id)
+  const customer = customerService.get(id)
   if(customer){
     return res.status(200).send(customer);
   } 
@@ -29,7 +31,7 @@ app.get('/customer/:id', (req: Request, res: Response) => {
 })
 
 app.get('/customers', (req:Request, res: Response) => {
-  const customers = CustomerService.getAll()
+  const customers = customerService.getAll()
 
   if(customers){
     return res.status(200).send(customers);
@@ -44,7 +46,7 @@ app.put('/customer/:id', (req:Request, res:Response) => {
   const email = req.body.email
   const birthdate = req.body.birthdate
 
-  const customerUpdated = CustomerService.updateCustomer(id, name, surname, email, birthdate)
+  const customerUpdated = customerService.updateCustomer(id, name, surname, email, birthdate)
   if(customerUpdated){
     return res.status(200).send(customerUpdated);
   } 
@@ -54,7 +56,7 @@ app.put('/customer/:id', (req:Request, res:Response) => {
 app.delete('/customer/:id', (req: Request, res: Response) => {
   const id = Number(req.params.id)
 
-  const customer = CustomerService.delete(id)
+  const customer = customerService.delete(id)
 
   if(customer){
     return res.status(200).send(customer);
