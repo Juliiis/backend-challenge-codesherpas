@@ -1,21 +1,20 @@
 import { Customer } from "../class/customer.class"
+import { nanoid } from 'nanoid'
 
 export class CustomerService {
-  customerIdCounter: number;
   customerCollection: Customer[];
 
-  constructor(customerIdCounter: number = 0, customerCollection: Customer[] = []){
-    this.customerIdCounter = customerIdCounter;
+  constructor(customerCollection: Customer[] = []){
     this.customerCollection = customerCollection;
   }
   
-  get(id: number): Customer | undefined {
+  get(id: string): Customer | undefined {
     return this.customerCollection.find(customer => customer.id === id)
   }
 
   new(name: string, surname: string, email: string, birthdate: string): Customer {
-    this.customerIdCounter++
-    const newCustomer = new Customer(this.customerIdCounter, name, surname, email, birthdate)
+    const newCustomerId = nanoid()
+    const newCustomer = new Customer(newCustomerId, name, surname, email, birthdate)
     this.customerCollection.push(newCustomer)
     return newCustomer
   }
@@ -24,7 +23,7 @@ export class CustomerService {
     return this.customerCollection
   }
 
-  updateCustomer(id: number, name: string, surname: string, email: string, birthdate: string): Customer | undefined{
+  updateCustomer(id: string, name: string, surname: string, email: string, birthdate: string): Customer | undefined{
    let customerToUpdate = this.customerCollection.find((customer) => { // delete the first customer
       if(customer.id == id){
         customer.name = name
@@ -37,7 +36,7 @@ export class CustomerService {
     return customerToUpdate
   }
 
-  delete(id: number): Customer | undefined{
+  delete(id: string): Customer | undefined{
     let customerDeleted = this.customerCollection.find((customer, index) => {
       if(customer.id == id){
         return this.customerCollection.splice(index, 1);

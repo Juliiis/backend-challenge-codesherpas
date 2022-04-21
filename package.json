@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Juliiis/backend-challenge-codesherpas#readme",
   "dependencies": {
     "express": "^4.17.3",
+    "nanoid": "^3.3.3",
     "ts-node": "^10.7.0"
   },
   "devDependencies": {
