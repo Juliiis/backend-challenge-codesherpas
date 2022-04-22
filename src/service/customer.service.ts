@@ -24,7 +24,7 @@ export class CustomerService {
   }
 
   updateCustomer(id: string, name: string, surname: string, email: string, birthdate: string): Customer | undefined{
-   let customerToUpdate = this.customerCollection.find((customer) => { // delete the first customer
+   let customerToUpdate = this.customerCollection.find((customer) => {
       if(customer.id == id){
         customer.name = name
         customer.surname = surname
