@@ -8,18 +8,46 @@ You will find a design and implementations of HTTP API to manage customer data f
 1. Fork or download the app and clone the repository in your local machine.
 2. Install dependencies using `npm install`
 3. To check the Jest tests use `npm test`
-5. To start the project and check the endpoints in Postman use `npm start`. The app is served at <http://localhost:3000/>
+4. To start the project and check the endpoints in Postman use `npm start`. The app is served at <http://localhost:3000/>
+
+## How to run the app with Docker
+
+1. docker run `image name`
+2. docker build -t `image name`
+
 
 ## Tools
 
 - Nodejs
 - Express
-- Jest
 - Typescript
+- Jest
+- Postman
+- Docker
+
+## Work in Progress
+
+- Finish tests for PUT, DELETE and GET customer/:id endpoints.
+- Fix Docker image 
+This is the last error:
+
+```
+node:internal/modules/cjs/loader:928
+  throw err;
+  ^
+
+Error: Cannot find module '/app/server.js'
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)
+    at node:internal/main/run_main_module:17:47 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+```
 
 ## Future Features
 
-- Finish tests for PUT, DELETE and GET customer/:id endpoints.
 - Create a real Database.
 - Refactor the code.
 
