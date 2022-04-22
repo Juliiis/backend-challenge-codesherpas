@@ -58,4 +58,7 @@ Error: Cannot find module '/app/server.js'
 
 - I tried to apply dependency injection. But first try to also apply the singleton pattern which at the end I decided not to use.
 
+### Small change
+- this is the small change to create the pull request
+
 _This challenge project was created in Barcelona for Code Sherpas in April 2022._
