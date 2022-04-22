@@ -1,8 +1,7 @@
 # Backend-Challenge-Codesherpas
 
 ## What you will find in this repository
-You will find a design and implementations of http api to manage customer data for a small shop.
-This is a challenge project for Code Sherpas.
+You will find a design and implementations of HTTP API to manage customer data for a small shop. This is a challenge project for Code Sherpas.
 
 ## How to run the app
 
@@ -11,14 +10,14 @@ This is a challenge project for Code Sherpas.
 3. To check the Jest tests use `npm test`
 5. To start the project and check the endpoints in Postman use `npm start`. The app is served at <http://localhost:3000/>
 
-## Dependencies
+## Tools
 
-- nodejs
-- express
-- jest
-- typescript
+- Nodejs
+- Express
+- Jest
+- Typescript
 
-## Future features
+## Future Features
 
 - Finish tests for PUT, DELETE and GET customer/:id endpoints.
 - Create a real Database.
